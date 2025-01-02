@@ -17,6 +17,7 @@ function WalletGenerator() {
     { publicKey: string; privateKey: string }[]
   >([]);
   const [alert, setAlert] = useState(false);
+  const [disabled , setDisabled] = useState(false)
   const { toast } = useToast();
 
   const showAlert = () => {
@@ -125,6 +126,7 @@ function WalletGenerator() {
         ...addresses,
         { publicKey: publicKey, privateKey: privateKey },
       ]);
+      setDisabled(true);
     } else {
       showAlert();
     }
@@ -142,7 +144,7 @@ function WalletGenerator() {
         </div>
       </div>
 
-      <Button onClick={GenerateMnemonic} className="my-4" disabled={currentIndex}>
+      <Button onClick={GenerateMnemonic} className="my-4" disabled={disabled}>
         Generate Seed Phrase
       </Button>
       <Button onClick={GenerateKeys} className="mx-4">
