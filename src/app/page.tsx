@@ -1,6 +1,5 @@
 import DataDisplay from "@/components/DataDisplay";
 import { Button } from "@/components/ui/button";
-import WalletGenerator from "@/components/WalletGenerator";
 import Link from "next/link";
 
 export default function Home() {
