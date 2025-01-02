@@ -75,7 +75,7 @@ function DataDisplay() {
         localStorage.setItem(`balance_${publicKey}`, balanceInSol.toString());
         setLoading(false);
       }
-    } catch (err: any) {
+    } catch (err:any) {
       setError(`Error: ${err.message}`);
       setLoading(false);
     }
