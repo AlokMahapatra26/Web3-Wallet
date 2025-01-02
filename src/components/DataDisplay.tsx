@@ -76,6 +76,7 @@ function DataDisplay() {
         setLoading(false);
       }
     } catch (err:any) {
+      const error = err as Error;  
       setError(`Error: ${err.message}`);
       setLoading(false);
     }
