@@ -75,12 +75,15 @@ function DataDisplay() {
         localStorage.setItem(`balance_${publicKey}`, balanceInSol.toString());
         setLoading(false);
       }
-    } catch (err:any) {
-      const error = err as Error;  
-      setError(`Error: ${err.message}`);
-      setLoading(false);
+    } catch (err: unknown) {
+        if (err instanceof Error) {
+            setError(`Error: ${err.message}`);
+          } else {
+            setError("An unexpected error occurred.");
+          }
+          setLoading(false);
     }
-  };
+  }
 
   // Fetch balance on initial render
   useEffect(() => {
